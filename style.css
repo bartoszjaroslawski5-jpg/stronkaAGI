@@ -1,0 +1,473 @@
+/* ==========================================
+   1. RESET I STYLE BAZOWE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #f8fafc;
+    color: #334155;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Uniwersalny, nowoczesny przycisk CTA */
+.cta-button {
+    display: inline-block;
+    background: #ff4a5a;
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 74, 90, 0.3);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background: #e03b4a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 74, 90, 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+/* ==========================================
+   2. NAWIGACJA (NAVBAR)
+   ========================================== */
+.navbar {
+    background: #ffffff;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie menu */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #475569;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar ul li a:hover {
+    color: #ff4a5a;
+}
+
+/* Efekt kreski pod linkiem na hover */
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ff4a5a;
+    transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   3. SEKKCJA HERO
+   ========================================== */
+.hero {
+    text-align: center;
+    background: linear-gradient(135deg, #fff0f6 0%, #eef2ff 100%);
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   4. SEKCJA URODZINY (NOWOCZESNA SIATKA KART)
+   ========================================== */
+.birthday-offer {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.offer-container {
+    max-width: 1100px;
+    width: 100%;
+}
+
+.birthday-offer h2 {
+    text-align: center;
+    font-size: 2.6rem;
+    color: #1e293b;
+    margin-bottom: 35px;
+}
+
+.intro-box {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    color: #475569;
+    font-size: 1.05rem;
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.grid-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 40px 0 30px 0;
+    color: #1e293b;
+}
+
+/* Główna siatka CSS Grid */
+.birthday-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* Wygląd pojedynczej karty */
+.b-card {
+    border-radius: 20px;
+    padding: 30px 25px;
+    text-align: center;
+    border: 3px solid transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.b-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.b-card h4 {
+    margin-bottom: 12px;
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.b-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Paleta pastelowych kolorów dla kart */
+.card-blue { background: #eef7ff; border-color: #b3d7ff; color: #1e40af; }
+.card-blue p { color: #2563eb; }
+
+.card-cyan { background: #e6fcfc; border-color: #99f1f1; color: #0369a1; }
+.card-cyan p { color: #0284c7; }
+
+.card-pink { background: #fff0f6; border-color: #ffb3d9; color: #9d174d; }
+.card-pink p { color: #db2777; }
+
+.card-yellow { background: #fffde6; border-color: #ffe680; color: #854d0e; }
+.card-yellow p { color: #ca8a04; }
+
+.card-orange { background: #fff6ed; border-color: #ffd8b3; color: #9a3412; }
+.card-orange p { color: #ea580c; }
+
+.card-green { background: #f6fdf0; border-color: #cceebb; color: #166534; }
+.card-green p { color: #16a34a; }
+
+.birthday-offer .cta-button {
+    display: block;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   5. SEKCJA CAROUSEL (GALERIA)
+   ========================================== */
+.carousel-section {
+    padding: 60px 0;
+    background-color: #f1f5f9;
+}
+
+.carousel {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.carousel img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    color: #1e293b;
+    border: none;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: background 0.2s, color 0.2s;
+}
+
+.carousel-button:hover {
+    background: #ff4a5a;
+    color: white;
+}
+
+.carousel-button.prev { left: 20px; }
+.carousel-button.next { right: 20px; }
+
+/* ==========================================
+   6. SEKCJA BALE TEMATYCZNE
+   ========================================== */
+.ball-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #eef2ff 0%, #fff0f6 100%);
+    text-align: center;
+}
+
+.ball-section h2 {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+    color: #1e293b;
+}
+
+.ball-section p {
+    font-size: 1.15rem;
+    margin-bottom: 50px;
+    color: #64748b;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ball-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Ujednolicenie kart bali z kartami urodzinowymi pod kątem efektu wow */
+.ball-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    max-width: 320px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.ball-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.ball-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.ball-card h3 {
+    font-size: 1.4rem;
+    color: #1e293b;
+    margin: 20px 20px 10px;
+}
+
+.ball-card p {
+    font-size: 0.95rem;
+    color: #475569;
+    margin: 0 20px 20px;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   7. MODAL POP-UP (PŁYNNE WYSUNIĘCIE)
+   ========================================== */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.6); /* Ciemniejsze, nowoczesne tło */
+    backdrop-filter: blur(4px); /* Efekt rozmycia tła za pop-upem */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Zmiana na płynne pojawianie się zamiast nagłego display: flex */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 24px;
+    text-align: center;
+    position: relative;
+    max-width: 440px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    
+    /* Efekt lekkiego powiększenia przy otwieraniu */
+    transform: scale(0.85);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Klasa aktywowana przez JS */
+.popup-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-overlay.active .popup-content {
+    transform: scale(1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    cursor: pointer;
+    color: #94a3b8;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #1e293b;
+}
+
+.popup-content h3 {
+    font-size: 1.6rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.popup-content p {
+    color: #64748b;
+    font-size: 1rem;
+}
+
+.phone-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #ff4a5a;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #fff5f5;
+    border-radius: 12px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.phone-link:hover {
+    background: #ffe3e3;
+    transform: scale(1.03);
+}
+
+/* ==========================================
+   8. STOPKA (FOOTER)
+   ========================================== */
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    background: #0f172a; /* Głęboki, nowoczesny odcień granatowo-czarnego */
+    color: #94a3b8;
+}
+
+.footer-content h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.footer-content p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    border-top: 1px solid #334155;
+    padding-top: 20px;
+    color: #64748b;
+}
