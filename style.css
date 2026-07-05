@@ -471,3 +471,91 @@ footer {
     padding-top: 20px;
     color: #64748b;
 }
+/* ==========================================
+   9. RESPONSYWNOŚĆ (STYLIZACJA DLA TELEFONÓW)
+   ========================================== */
+@media (max-width: 768px) {
+    
+    /* 1. Menu nawigacyjne układamy w kolumnę, żeby nie wystawało w bok */
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 5px 0;
+    }
+
+    /* 2. Zmniejszamy gigantyczny nagłówek w sekcji powitalnej */
+    .hero {
+        padding: 50px 15px;
+    }
+    .hero h1 {
+        font-size: 2rem; /* Z 3rem na bezpieczne 2rem */
+    }
+    .hero p {
+        font-size: 1.05rem;
+    }
+
+    /* 3. Dostosowanie sekcji Urodziny */
+    .birthday-offer {
+        padding: 40px 10px;
+    }
+    .offer-container {
+        padding: 25px 15px; /* Mniejsze wewnętrzne marginesy, żeby tekst miał miejsce */
+        border-radius: 12px;
+    }
+    .birthday-offer h2 {
+        font-size: 1.8rem;
+    }
+    .grid-title {
+        font-size: 1.3rem;
+    }
+
+    /* Zmniejszamy minimalną szerokość karty z 300px do 250px, 
+       dzięki czemu zmieszczą się nawet na bardzo wąskich telefonach */
+    .birthday-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .b-card {
+        padding: 20px 15px;
+    }
+
+    /* 4. Sekcja Bale Tematyczne */
+    .ball-section {
+        padding: 40px 15px;
+    }
+    .ball-section h2 {
+        font-size: 1.8rem;
+    }
+    .ball-section p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    .ball-cards {
+        gap: 20px;
+    }
+    .ball-card {
+        max-width: 100%; /* Na telefonie karta rozciągnie się ładnie na całą szerokość */
+    }
+
+    /* 5. Przycisk dopasowany do kciuka */
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 290px; /* Przyciski stają się pełnowymiarowe, łatwiejsze do kliknięcia */
+    }
+
+    /* 6. Pop-up na telefonie */
+    .popup-content {
+        padding: 30px 20px;
+        border-radius: 16px;
+    }
+    .popup-content h3 {
+        font-size: 1.3rem;
+    }
+    .phone-link {
+        font-size: 1.3rem;
+        width: 100%;
+    }
+}
