@@ -24,7 +24,7 @@ function animateTrain() {
   document.body.prepend(trainContainer);
 
   let position = -trainImage.offsetWidth;
-  const animationSpeed = 6;
+  const animationSpeed = 3; // Zmniejszona prędkość
   let passCount = 0;
   const maxPasses = 1;
 
@@ -41,7 +41,11 @@ function animateTrain() {
     }
     requestAnimationFrame(moveTrain);
   }
-  moveTrain();
+  
+  // Opóźnienie startu o 1 sekundę
+  setTimeout(() => {
+    moveTrain();
+  }, 1000);
 }
 window.addEventListener('load', animateTrain);
 
