@@ -16,6 +16,7 @@ body {
     line-height: 1.6;
     background-color: #f8fafc;
     color: #334155;
+    overflow-x: hidden;
 }
 
 .container {
@@ -23,6 +24,15 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     width: 100%;
+}
+
+/* Widoczny focus dla klawiatury - dostępność */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid #ff4a5a;
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
 /* Uniwersalny, nowoczesny przycisk CTA */
@@ -40,6 +50,8 @@ body {
     transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     text-decoration: none;
     text-align: center;
+    position: relative;
+    overflow: visible;
 }
 
 .cta-button:hover {
@@ -62,11 +74,31 @@ body {
     top: 0;
     z-index: 100;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
 }
 
-.navbar .container {
+.navbar.scrolled {
+    padding: 8px 0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-inner {
     display: flex;
-    justify-content: center; /* Wyśrodkowanie menu */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #1e293b;
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #ff4a5a;
 }
 
 .navbar ul {
@@ -84,11 +116,12 @@ body {
     position: relative;
 }
 
-.navbar ul li a:hover {
+.navbar ul li a:hover,
+.navbar ul li a.active {
     color: #ff4a5a;
 }
 
-/* Efekt kreski pod linkiem na hover */
+/* Efekt kreski pod linkiem na hover / aktywnym */
 .navbar ul li a::after {
     content: '';
     position: absolute;
@@ -100,17 +133,53 @@ body {
     transition: width 0.3s ease;
 }
 
-.navbar ul li a:hover::after {
+.navbar ul li a:hover::after,
+.navbar ul li a.active::after {
     width: 100%;
 }
 
+/* Hamburger - domyślnie ukryty na desktopie */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 34px;
+    height: 34px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+    padding: 0;
+}
+
+.hamburger span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    border-radius: 2px;
+    background: #1e293b;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 /* ==========================================
-   3. SEKKCJA HERO
+   3. SEKCJA HERO
    ========================================== */
 .hero {
     text-align: center;
     background: linear-gradient(135deg, #fff0f6 0%, #eef2ff 100%);
-    padding: 80px 20px;
+    background-size: 200% 200%;
+    padding: 80px 20px 110px;
     position: relative;
     overflow: hidden;
 }
@@ -120,12 +189,60 @@ body {
     margin-bottom: 15px;
     color: #1e293b;
     font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.text-pop {
+    background: linear-gradient(90deg, #ff4a5a, #ff8a65, #ff4a5a);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .hero p {
     font-size: 1.3rem;
     color: #64748b;
     max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Latające balony w tle hero - czysto dekoracyjne */
+.floating-balloons {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-balloons span {
+    position: absolute;
+    left: var(--x);
+    bottom: -60px;
+    font-size: 2rem;
+    opacity: 0.8;
+}
+
+/* Strzałka zachęcająca do scrollowania */
+.scroll-cue {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    margin-top: 40px;
+    width: 26px;
+    height: 26px;
+}
+
+.scroll-cue span {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-right: 3px solid #ff4a5a;
+    border-bottom: 3px solid #ff4a5a;
+    transform: rotate(45deg);
     margin: 0 auto;
 }
 
@@ -151,10 +268,17 @@ body {
     margin-bottom: 35px;
 }
 
-.intro-box {
-    text-align: center;
-    max-width: 800px;
+.offer-intro {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 980px;
     margin: 0 auto 50px auto;
+    text-align: left;
+}
+
+.offer-intro-text {
+    flex: 1 1 380px;
     color: #475569;
     font-size: 1.05rem;
 }
@@ -163,6 +287,27 @@ body {
     font-size: 1.2rem;
     color: #1e293b;
     margin-bottom: 20px;
+}
+
+/* Samodzielna, pionowa grafika oferty (plakat od grafika) */
+.offer-poster {
+    flex: 0 0 280px;
+    max-width: 280px;
+}
+
+.offer-poster img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    transform: rotate(-1.5deg);
+}
+
+.offer-poster:hover img {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .grid-title {
@@ -199,6 +344,11 @@ body {
     font-size: 3rem;
     margin-bottom: 15px;
     display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.b-card:hover .card-icon {
+    transform: rotate(-8deg) scale(1.15);
 }
 
 .b-card h4 {
@@ -237,7 +387,7 @@ body {
 }
 
 /* ==========================================
-   5. SEKCJA CAROUSEL (GALERIA)
+   5. SEKCJA CAROUSEL (GALERIA) - W PEŁNI DZIAŁAJĄCA
    ========================================== */
 .carousel-section {
     padding: 60px 0;
@@ -252,12 +402,28 @@ body {
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    aspect-ratio: 16 / 9;
+    background: #e2e8f0;
+}
+
+.carousel[data-carousel] ul[data-slides] {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: transform;
+}
+
+.carousel .slide {
+    flex: 0 0 100%;
+    height: 100%;
 }
 
 .carousel img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
 }
 
 .carousel-button {
@@ -273,16 +439,44 @@ body {
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    z-index: 5;
 }
 
 .carousel-button:hover {
     background: #ff4a5a;
     color: white;
+    transform: translateY(-50%) scale(1.08);
 }
 
 .carousel-button.prev { left: 20px; }
 .carousel-button.next { right: 20px; }
+
+.carousel-dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 5;
+}
+
+.carousel-dots button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.carousel-dots button.active {
+    background: #ff4a5a;
+    transform: scale(1.25);
+}
 
 /* ==========================================
    6. SEKCJA BALE TEMATYCZNE
@@ -337,6 +531,11 @@ body {
     width: 100%;
     height: 220px;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.ball-card:hover img {
+    transform: scale(1.06);
 }
 
 .ball-card h3 {
@@ -367,7 +566,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     /* Zmiana na płynne pojawianie się zamiast nagłego display: flex */
     opacity: 0;
     pointer-events: none;
@@ -383,7 +582,7 @@ body {
     max-width: 440px;
     width: 90%;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    
+
     /* Efekt lekkiego powiększenia przy otwieraniu */
     transform: scale(0.85);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -471,22 +670,161 @@ footer {
     padding-top: 20px;
     color: #64748b;
 }
+
 /* ==========================================
-   9. RESPONSYWNOŚĆ (STYLIZACJA DLA TELEFONÓW)
+   9. BACK TO TOP
+   ========================================== */
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: #ff4a5a;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(255, 74, 90, 0.35);
+    z-index: 400;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #e03b4a;
+}
+
+/* ==========================================
+   10. SCROLL REVEAL
+   ========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ==========================================
+   11. CONFETTI (cząstki generowane przez JS)
+   ========================================== */
+.confetti-piece {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 9998;
+    will-change: transform, opacity;
+}
+
+/* ==========================================
+   12. ANIMACJE (KEYFRAMES)
+   ========================================== */
+@keyframes floatUp {
+    0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.85; }
+    90%  { opacity: 0.85; }
+    100% { transform: translateY(-620px) translateX(20px) rotate(15deg); opacity: 0; }
+}
+
+@keyframes bgShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes bounceCue {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+@keyframes confettiFall {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) rotate(var(--rot)); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .floating-balloons span {
+        animation: floatUp var(--dur, 16s) linear var(--delay, 0s) infinite;
+    }
+    .hero {
+        animation: bgShift 14s ease infinite;
+    }
+    .scroll-cue span {
+        animation: bounceCue 1.6s ease-in-out infinite;
+    }
+    .confetti-piece {
+        animation: confettiFall 1.1s ease-out forwards;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        transition: none;
+    }
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ==========================================
+   13. RESPONSYWNOŚĆ (STYLIZACJA DLA TELEFONÓW)
    ========================================== */
 @media (max-width: 768px) {
-    
-    /* 1. Menu nawigacyjne układamy w kolumnę, żeby nie wystawało w bok */
-    .navbar ul {
+
+    .navbar-inner {
+        position: relative;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Menu chowane w wysuwany panel z prawej strony */
+    #nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: min(75vw, 300px);
+        background: #ffffff;
         flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding: 5px 0;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 28px;
+        padding: 40px;
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.12);
+        transform: translateX(100%);
+        transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+        z-index: 150;
+    }
+
+    #nav-menu.open {
+        transform: translateX(0);
+    }
+
+    #nav-menu li a {
+        font-size: 1.15rem;
     }
 
     /* 2. Zmniejszamy gigantyczny nagłówek w sekcji powitalnej */
     .hero {
-        padding: 50px 15px;
+        padding: 50px 15px 80px;
     }
     .hero h1 {
         font-size: 2rem; /* Z 3rem na bezpieczne 2rem */
@@ -499,6 +837,20 @@ footer {
     .birthday-offer {
         padding: 40px 10px;
     }
+
+    .offer-intro {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+    }
+    .offer-intro-text {
+        order: 2;
+    }
+    .offer-poster {
+        order: 1;
+        flex-basis: auto;
+        max-width: 220px;
+    }
     .offer-container {
         padding: 25px 15px; /* Mniejsze wewnętrzne marginesy, żeby tekst miał miejsce */
         border-radius: 12px;
@@ -510,7 +862,7 @@ footer {
         font-size: 1.3rem;
     }
 
-    /* Zmniejszamy minimalną szerokość karty z 300px do 250px, 
+    /* Zmniejszamy minimalną szerokość karty z 300px do 250px,
        dzięki czemu zmieszczą się nawet na bardzo wąskich telefonach */
     .birthday-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -558,4 +910,38 @@ footer {
         font-size: 1.3rem;
         width: 100%;
     }
+
+    /* 7. Mniejsze przyciski karuzeli i back-to-top na telefonie */
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    .carousel-button.prev { left: 10px; }
+    .carousel-button.next { right: 10px; }
+
+    .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+    }
+ /* ==========================================
+   14. POWIĘKSZANIE PLAKATU Z MIEJSCA
+   ========================================== */
+.offer-poster img {
+    position: relative;
+    z-index: 1;
+    cursor: zoom-in;
+    /* Opóźniamy zmianę z-index przy powrocie, żeby plakat za wcześnie nie wpadł pod resztę układu */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, z-index 0s 0.4s;
+}
+
+.offer-poster img.zoomed-in {
+    z-index: 9999;
+    cursor: zoom-out;
+    /* Przy powiększaniu z-index zmienia się bez opóźnienia */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, z-index 0s;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
 }

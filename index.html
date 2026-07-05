@@ -4,26 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Niezapomniane Animacje – organizacja urodzin i bali tematycznych dla dzieci w Warszawie. Animatorzy, bańki mydlane, malowanie twarzy i mnóstwo zabawy.">
     <title>Niezapomniane Animacje</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="container">
-                <ul>
-                    <li><a href="#home">Strona główna</a></li>
-                    <li><a href="#urodziny">Urodziny</a></li>
-                    <li><a href="#bale">Bale</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
+        <nav class="navbar" id="navbar">
+            <div class="container navbar-inner">
+                <a href="#home" class="logo">Niezapomniane <span>Animacje</span></a>
+
+                <button id="hamburger" class="hamburger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul id="nav-menu">
+                    <li><a href="#home" class="nav-link">Strona główna</a></li>
+                    <li><a href="#urodziny" class="nav-link">Urodziny</a></li>
+                    <li><a href="#bale" class="nav-link">Bale</a></li>
+                    <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
                 </ul>
             </div>
         </nav>
-        
+
         <div class="hero" id="home">
-            <h1>Niezapomniane Animacje</h1>
+            <div class="floating-balloons" aria-hidden="true">
+                <span style="--x:8%;  --delay:0s;   --dur:14s;">🎈</span>
+                <span style="--x:22%; --delay:2.5s; --dur:17s;">🎈</span>
+                <span style="--x:78%; --delay:1s;   --dur:15s;">🎈</span>
+                <span style="--x:90%; --delay:3.5s; --dur:19s;">🎈</span>
+                <span style="--x:50%; --delay:4.5s; --dur:16s;">✨</span>
+                <span style="--x:65%; --delay:0.8s; --dur:13s;">🎉</span>
+                <span style="--x:35%; --delay:2s;   --dur:18s;">✨</span>
+            </div>
+            <h1>Niezapomniane <span class="text-pop">Animacje</span></h1>
             <p>Tworzymy magiczne chwile na każdą okazję</p>
+            <a href="#urodziny" class="scroll-cue" aria-label="Przewiń w dół">
+                <span></span>
+            </a>
         </div>
     </header>
 
@@ -32,93 +53,106 @@
         <section class="birthday-offer" id="urodziny">
             <div class="offer-container">
                 <h2>Organizacja Urodzin</h2>
-                
-                <div class="intro-box">
-                    <p class="lead-text">
-                        <strong>🥳 Niezapomniane Urodziny dla Twojego Dziecka! 🎂</strong><br>
-                        Szukasz przepisu na urodziny idealne? Takie, o których Twoje dziecko będzie opowiadać znajomym przez kolejne miesiące, a Ty w tym czasie... po prostu odpoczniesz i wypijesz ciepłą kawę? Dobrze trafiłeś!
-                    </p>
-                    <p>Zdejmujemy z Twoich barków organizację zabawy. Wkraczamy do akcji z pełnym workiem energii, uśmiechu i genialnych pomysłów, które wciągną do zabawy każdego małego świętującego i jego gości.</p>
+
+                <div class="offer-intro reveal">
+                    <div class="offer-intro-text">
+                        <p class="lead-text">
+                            <strong>🥳 Niezapomniane Urodziny dla Twojego Dziecka! 🎂</strong><br>
+                            Szukasz przepisu na urodziny idealne? Takie, o których Twoje dziecko będzie opowiadać znajomym przez kolejne miesiące, a Ty w tym czasie... po prostu odpoczniesz i wypijesz ciepłą kawę? Dobrze trafiłeś!
+                        </p>
+                        <p>Zdejmujemy z Twoich barków organizację zabawy. Wkraczamy do akcji z pełnym workiem energii, uśmiechu i genialnych pomysłów, które wciągną do zabawy każdego małego świętującego i jego gości.</p>
+                    </div>
+                    <div class="offer-poster">
+                        <img src="resources/uro.jpg" alt="Oferta urodzinowa - plakat" loading="lazy">
+                    </div>
                 </div>
-                
-                <h3 class="grid-title">✨ Co czeka na małych imprezowiczów? ✨</h3>
-                
+
+                <h3 class="grid-title reveal">✨ Co czeka na małych imprezowiczów? ✨</h3>
+
                 <div class="birthday-grid">
-                    <div class="b-card card-blue">
+                    <div class="b-card card-blue reveal">
                         <div class="card-icon">🚀</div>
                         <h4>Tematyczne scenariusze</h4>
                         <p>Kosmiczna misja, szkoła magii, piracka wyprawa, a może królestwo Krainy Lodu? Dopasujemy motyw przewodni do pasji dziecka!</p>
                     </div>
-                    
-                    <div class="b-card card-cyan">
+
+                    <div class="b-card card-cyan reveal">
                         <div class="card-icon">🧼</div>
                         <h4>Wielkie bańki mydlane</h4>
                         <p>Atrakcja, która zawsze wywołuje efekt "WOW" i gwarantuje genialne, niezapomniane zdjęcia z imprezy.</p>
                     </div>
-                    
-                    <div class="b-card card-pink">
+
+                    <div class="b-card card-pink reveal">
                         <div class="card-icon">🎨</div>
                         <h4>Tatuaże i malowanie twarzy</h4>
                         <p>Profesjonalne, bezpieczne dla skóry transformacje w ulubione postacie z bajek lub urocze zwierzątka.</p>
                     </div>
-                    
-                    <div class="b-card card-yellow">
+
+                    <div class="b-card card-yellow reveal">
                         <div class="card-icon">🎈</div>
                         <h4>Modelowanie balonów</h4>
                         <p>Miecze, pieski, korony – każde dziecko wyjdzie z imprezy z własnoręcznie wybranym balonowym prezentem.</p>
                     </div>
-                    
-                    <div class="b-card card-orange">
+
+                    <div class="b-card card-orange reveal">
                         <div class="card-icon">🏆</div>
                         <h4>Gry i konkursy</h4>
                         <p>Dostosowane do wieku uczestników – od szalonych tańców-łamańców po angażujące miniturnieje z nagrodami.</p>
                     </div>
-                    
-                    <div class="b-card card-green">
+
+                    <div class="b-card card-green reveal">
                         <div class="card-icon">🏺</div>
                         <h4>Warsztaty kreatywne</h4>
-                        <p>Rozwijające zdolności manualne robienie własnych, kolorowych Slime’ów oraz twórcza praca z gliną.</p>
+                        <p>Rozwijające zdolności manualne robienie własnych, kolorowych Slime'ów oraz twórcza praca z gliną.</p>
                     </div>
                 </div>
 
-                <button id="open-popup" class="cta-button">Zarezerwuj teraz</button>
+                <button id="open-popup" class="cta-button confetti-trigger">Zarezerwuj teraz</button>
             </div>
+
         </section>
-        
+
         <section class="carousel-section">
-            <div class="carousel" data-carousel>
-                <ul data-slides>
-                    <li class="slide" data-active><img src="resources/1.jpg" alt="Dzieci bawiące się #1"></li>
-                    <li class="slide"><img src="resources/2.jpg" alt="Dzieci bawiące się #2"></li>
-                    <li class="slide"><img src="resources/3.jpg" alt="Dzieci bawiące się #3"></li>
-                    <li class="slide"><img src="resources/4.jpg" alt="Dzieci bawiące się #4"></li>
-                    <li class="slide"><img src="resources/5.jpg" alt="Dzieci bawiące się #5"></li>
-                </ul>
+            <div class="container">
+                <div class="carousel reveal" data-carousel tabindex="0" aria-label="Galeria zdjęć z imprez" aria-roledescription="karuzela">
+                    <ul data-slides>
+                        <li class="slide"><img src="resources/1.jpg" alt="Dzieci bawiące się #1" loading="lazy"></li>
+                        <li class="slide"><img src="resources/2.jpg" alt="Dzieci bawiące się #2" loading="lazy"></li>
+                        <li class="slide"><img src="resources/3.jpg" alt="Dzieci bawiące się #3" loading="lazy"></li>
+                        <li class="slide"><img src="resources/4.jpg" alt="Dzieci bawiące się #4" loading="lazy"></li>
+                        <li class="slide"><img src="resources/5.jpg" alt="Dzieci bawiące się #5" loading="lazy"></li>
+                    </ul>
+
+                    <button class="carousel-button prev" data-prev aria-label="Poprzednie zdjęcie">‹</button>
+                    <button class="carousel-button next" data-next aria-label="Następne zdjęcie">›</button>
+
+                    <div class="carousel-dots" data-dots></div>
+                </div>
             </div>
         </section>
 
         <section class="ball-section" id="bale">
             <div class="container">
-                <h2>Bale Tematyczne dla Dzieci</h2>
-                <p>Zapraszamy dzieci na niesamowite bale tematyczne, gdzie przeniosą się w świat bajek, magii i przygód!</p>
+                <h2 class="reveal">Bale Tematyczne dla Dzieci</h2>
+                <p class="reveal">Zapraszamy dzieci na niesamowite bale tematyczne, gdzie przeniosą się w świat bajek, magii i przygód!</p>
                 <div class="ball-cards">
-                    <div class="ball-card">
-                        <img src="resources/8.jpg" alt="Bal Księżniczek">
+                    <div class="ball-card reveal">
+                        <img src="resources/8.jpg" alt="Bal Czarodziejów" loading="lazy">
                         <h3>Bal Czarodziejów</h3>
                         <p>Wspaniała zabawa w świecie bajkowych czarodziejów z pięknymi dekoracjami, kostiumami i animacjami.</p>
                     </div>
-                    <div class="ball-card">
-                        <img src="resources/9.jpg" alt="Bal Piratów">
+                    <div class="ball-card reveal">
+                        <img src="resources/9.jpg" alt="Bal z myszką Miki" loading="lazy">
                         <h3>Bal z myszką Miki</h3>
                         <p>Niech Twoje dziecko odkryje zaczarowany świat z myszką Miki!</p>
                     </div>
-                    <div class="ball-card">
-                        <img src="resources/10.jpg" alt="Kosmiczny Bal">
+                    <div class="ball-card reveal">
+                        <img src="resources/10.jpg" alt="Wirująca chusta" loading="lazy">
                         <h3>Wirująca chusta</h3>
                         <p>Przygoda nie z tej ziemi! Sensoryczna zabawa i wspaniały klimat</p>
                     </div>
                 </div>
-                <button onclick="location.href='#kontakt'" class="cta-button">Zarezerwuj Bal</button>
+                <button id="open-ball-popup" class="cta-button confetti-trigger">Zarezerwuj Bal</button>
             </div>
         </section>
     </main>
@@ -133,16 +167,22 @@
         <p class="copyright">&copy; 2026 Niezapomniane Animacje. Wszelkie prawa zastrzeżone.</p>
     </footer>
 
+    <button id="back-to-top" class="back-to-top" aria-label="Przewiń do góry">↑</button>
+
     <!-- Kod pop-upu wrzucony poprawnie na sam dół strony -->
-    <div id="phone-popup" class="popup-overlay">
+    <div id="phone-popup" class="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
         <div class="popup-content">
-            <span id="close-popup" class="close-btn">&times;</span>
-            <h3>Zarezerwuj termin</h3>
+            <span id="close-popup" class="close-btn" role="button" tabindex="0" aria-label="Zamknij okno">&times;</span>
+            <h3 id="popup-title">Zarezerwuj termin</h3>
             <p>Zadzwoń do nas i ustal szczegóły urodzin:</p>
             <a href="tel:+48123456789" class="phone-link">+48 123 456 789</a>
         </div>
     </div>
-
+    <!-- Okno powiększonego plakatu (Lightbox) -->
+    <div id="image-lightbox" class="popup-overlay" role="dialog" aria-modal="true">
+        <span id="close-lightbox" class="close-btn" role="button" tabindex="0" aria-label="Zamknij podgląd">&times;</span>
+        <img id="lightbox-img" src="" alt="Powiększony plakat" class="lightbox-content">
+    </div>
     <script src="engine.js" defer></script>
 </body>
 </html>
