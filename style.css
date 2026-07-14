@@ -36,12 +36,12 @@ body {
 }
 
 h1, h2, h3, .logo-text, .btn, .chip, .pricing-title {
-  font-family: 'Fredoka', 'Inter', sans-serif;
+  font-family: 'Nunito', 'Inter', sans-serif;
 }
 
-h1 { font-size: clamp(2.75rem, 7.5vw, 5.25rem); font-weight: 700; line-height: 1.04; letter-spacing: -0.02em; }
-h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.015em; margin-bottom: 0.5em; }
-h3 { font-size: 1.25rem; font-weight: 600; }
+h1 { font-size: clamp(2.75rem, 7.5vw, 5.25rem); font-weight: 900; line-height: 1.04; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 800; line-height: 1.12; letter-spacing: -0.015em; margin-bottom: 0.5em; }
+h3 { font-size: 1.25rem; font-weight: 800; }
 
 .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; width: 100%; }
 .center { text-align: center; margin-top: 40px; }
@@ -82,7 +82,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   cursor: pointer;
   text-decoration: none;
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 15px 34px;
   border-radius: 999px;
   transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.2s ease;
@@ -143,7 +143,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   object-fit: cover;
 }
 .logo-text {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.15rem;
   color: var(--ink);
   letter-spacing: 0.01em;
@@ -222,7 +222,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
    ════════════════════════════════════════════ */
 .hero {
   position: relative;
-  padding: calc(var(--nav-h) + 150px) 0 40px;
+  padding: calc(var(--nav-h) + 205px) 0 40px;
   background:
     radial-gradient(60% 45% at 12% 8%, rgba(240, 40, 143, 0.09), transparent 70%),
     radial-gradient(55% 45% at 88% 12%, rgba(41, 169, 225, 0.10), transparent 70%),
@@ -234,7 +234,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* Tor, po którym jeździ ciuchcia */
 .train-track {
   position: absolute;
-  top: calc(var(--nav-h) + 118px);
+  top: calc(var(--nav-h) + 168px);
   left: 0; right: 0;
   height: 3px;
   background-image: linear-gradient(90deg, rgba(36,20,54,0.14) 0 22px, transparent 22px 40px);
@@ -321,7 +321,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   background: var(--ink);
   color: #fff;
   padding: 14px 0;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -344,7 +344,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .attr-group { margin: 56px 0 22px; }
 .chip {
   display: inline-block;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
   padding: 9px 20px;
   border-radius: 999px;
@@ -512,7 +512,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   gap: 40px;
   flex-wrap: wrap;
 }
-.pricing-title { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 700; }
+.pricing-title { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 900; }
 .pricing-title span { font-size: 0.45em; font-weight: 500; opacity: 0.8; }
 .pricing-sub { margin-top: 10px; opacity: 0.85; max-width: 460px; }
 .pricing-actions { display: flex; flex-direction: column; gap: 14px; }
@@ -583,9 +583,9 @@ footer a:hover { color: var(--pink); }
 
 .phone-link {
   display: block;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 800;
   color: #fff;
   background: var(--candy);
   text-decoration: none;
@@ -706,8 +706,8 @@ footer a:hover { color: var(--pink); }
   .nav-cta { width: 100%; padding: 14px; font-size: 1.05rem; }
 
   .section { padding: 80px 0; }
-  .hero { padding-top: calc(var(--nav-h) + 120px); }
-  .train-track { top: calc(var(--nav-h) + 92px); }
+  .hero { padding-top: calc(var(--nav-h) + 190px); }
+  .train-track { top: calc(var(--nav-h) + 152px); }
   .hero-sub { font-size: 1.05rem; }
   .hero-visual { margin-top: 54px; }
   .hero-float-a { bottom: -22px; }

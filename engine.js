@@ -28,8 +28,12 @@ function animateTrain() {
   hero.appendChild(container);
 
   img.addEventListener('load', () => {
-    // Rozmiar ciuchci dopasowany do ekranu
-    const height = Math.max(70, Math.min(window.innerWidth * 0.16, 150));
+    // Rozmiar ciuchci dopasowany do ekranu.
+    // Na telefonie proporcjonalnie WIĘKSZA, żeby było widać, kto siedzi w środku.
+    const vw = window.innerWidth;
+    const height = vw < 820
+      ? Math.max(105, Math.min(vw * 0.34, 150))   // mobile / tablet
+      : Math.min(vw * 0.13, 160);                 // desktop
     container.style.height = height + 'px';
     // Ciuchcia jedzie "po torze" — spód wagoników na linii toru
     container.style.top = (track.offsetTop - height + 3) + 'px';
